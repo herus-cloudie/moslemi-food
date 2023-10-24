@@ -1,5 +1,5 @@
 import Link from "next/link";
-import style from "./Card.module.css";
+import style from "./card.module.css";
 import Location from "../icons/Location";
 import Dollar from "../icons/Dollar";
 

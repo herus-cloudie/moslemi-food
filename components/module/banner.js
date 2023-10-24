@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./Banner.module.css";
+import styles from "./banner.module.css";
 
 function Banner() {
   return (

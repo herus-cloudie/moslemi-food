@@ -1,4 +1,4 @@
-import styles from "./DetailsPage.module.css";
+import styles from "./detailsPage.module.css";
 import Location from "../icons/Location";
 import Dollar from "../icons/Dollar";
 
