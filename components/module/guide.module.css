@@ -10,6 +10,7 @@
     padding: 15px 50px;
     border-radius: 10px;
     cursor: pointer;
+
   }
   
   @media (max-width: 900px) {
@@ -18,3 +19,18 @@
     }
   }
   
+
+
+    @media (max-width: 500px) {
+      .container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container a {
+      padding: 10px 20px;
+      margin: 0px 0 20px;
+    }
+  }

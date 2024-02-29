@@ -5,10 +5,10 @@ function Banner() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <h2>AmirFood</h2>
+        <h2>Moslemi Food</h2>
         <p>Food Delivery and Takeout!</p>
         <span>
-          AmirFood is an online food ordering and delivery platform launched by
+        Moslemi Food is an online food ordering and delivery platform launched by
           Uber in 2014. Meals are delivered by couriers using cars, scooters,
           bikes, or on foot.
         </span>

@@ -1,15 +1,15 @@
 import {  useState } from 'react'
-import style from './categuriesPage.module.css'
+import style from './categoriesPage.module.css'
 import { useRouter } from 'next/router'
 import Card from '../module/card';
-export default function CateguriesPage({data}){
+export default function CategoriesPage({data}){
     let [query , setQuery] = useState({Difficulty : "" , Time : ""});
     let router = useRouter();
     let queryTime = router.query.Time;    
     let queryDifficulty = router.query.Difficulty;
     let mainTime , nothingExist = true;
     let changeHandler= e => setQuery({ ...query , [e.target.name] : e.target.value})
-    let clickHandler = () => router.push({ pathname : "/categuries" , query })
+    let clickHandler = () => router.push({ pathname : "/categories" , query })
 
     if (queryTime && queryDifficulty) {
         mainTime = data.filter(item => queryTime == 'More' 
@@ -28,7 +28,7 @@ export default function CateguriesPage({data}){
 
     return(
         <div className={style.container}>
-            <h2>Categuries</h2>
+            <h2>categories</h2>
             <div>
                 <div className={style.select}>
                     <select onChange={changeHandler} name='Difficulty'>

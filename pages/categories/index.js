@@ -1,8 +1,9 @@
-import CateguriesPage from "@/components/template/categuriesPage";
+import CategoriesPage from "@/components/template/categoriesPage";
 
-export default function Categuries({data}){
+
+export default function Categories({data}){
     return(
-        <CateguriesPage data={data}/>
+        <CategoriesPage data={data}/>
     )
 }
 

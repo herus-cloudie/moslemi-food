@@ -10,7 +10,7 @@
   
   .subContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   
   .subContainer div {
@@ -20,8 +20,7 @@
       rgba(17, 17, 26, 0.05) 0px 8px 32px;
     text-align: center;
     padding: 25px 20px 20px;
-    margin-top: 20px;
-    
+    margin: 20px 10px 10px;
   }
   
   .subContainer p {
@@ -34,5 +33,11 @@
     .subContainer {
       flex-wrap: wrap;
     }
+  }
+  @media (max-width : 420px) {
+    .subContainer div {
+      margin: 20px 0px 10px;
+    }
+
   }
   

@@ -15,20 +15,19 @@ margin-top: 10px;
 border-bottom: 3px solid #53c60b;
 width: fit-content;
 margin: 20px 0;
-font-family: monospace;
+font-family: revert;
 }
 
 .left p {
 font-weight: 500;
 margin: 16px 0;
-font-family: cursive;
+font-family: sans-serif;
 }
 
 .left span {
 color: grey;
 text-align: justify;
-font-family: cursive;
-
+font-family: system-ui;
 }
 
 .left a {
@@ -47,19 +46,19 @@ border-radius: 5px;
 .left {
     margin-top: 10px;
 }
+
 }
 
 @media (max-width: 600px) {
 .container {
+    display: flex;
     flex-direction: column-reverse;
+    align-items: center;
 }
 .right {
     text-align: center;
 }
 .right img {
     width: 90%;
-}
-.left {
-    margin-top: 20px;
 }
 }

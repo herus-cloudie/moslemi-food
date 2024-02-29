@@ -30,14 +30,19 @@
 .right a {
   margin-left: 15px;
   color: dimgrey;
-  font-family: cursive; 
 }
-
+.right{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+}
 .footer {
   background-color: #7c7c7c;
   text-align: center;
   color: #fff;
   padding: 10px 0;
+  margin-bottom: -15px;
   margin-top: 30px;
 }
 
@@ -49,7 +54,55 @@
 .container {
   min-height: 1000px;
 }
-
+.menu{
+  display: none;
+}
+.cart{
+  display: none;
+}
+.cart svg{
+  height: 45px;
+  width: 45px;
+  cursor: pointer;
+}
+.menu svg{
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+}
+.menu_list{
+  display: none;
+}
+.close{
+    position: absolute;
+    right: 40px;
+    top: 30px;
+}
+.close svg{
+  width: 35px;
+  height: 35px;
+}
+.menu_list{
+  top: 0px;
+  position: relative;
+  left: 0px;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  padding: 40px 0 0 55px;
+  min-height: 40vh;
+  z-index: 98;
+  background: linear-gradient(154deg, rgb(206 206 206) 6%, rgba(83,198,11,1) 100%);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: 0.4s;
+}
+.menu_list a{
+font-size: 25px;
+font-weight: 600;
+padding: 0 0 30px;
+}
 @media (max-width: 900px) {
   .header {
     padding: 20px;
@@ -57,7 +110,16 @@
 }
 
 @media (max-width: 600px) {
+
+  
   .header {
     padding: 15px;
   }
+  .right{
+    display: none;
+  }
+  .menu{
+    display: block;
+  }
 }
+

@@ -9,13 +9,13 @@ import Restrictions from '../module/restrictions'
 export default function HomePage(){
     return(
         <div className={style.container}> 
-        <Banner/>
-        <Attributes/>
-        <Definition />
-        <Companies />
-        <Instruction />
-        <Guide />
-        <Restrictions />
+            <Banner/>
+            <Attributes/>
+            <Definition />
+            <Companies />
+            <Instruction />
+            <Guide />
+            <Restrictions />
         </div>
     )
 }
