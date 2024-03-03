@@ -5,7 +5,7 @@ import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 
 export const authOptions = {
- 
+    secret : process.env.AUTH_SECRET,
     providers: [
         Credentials({
           async authorize(credentials) {

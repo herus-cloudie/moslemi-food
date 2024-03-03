@@ -8,10 +8,17 @@ import { TfiMenu } from "react-icons/tfi";
 import { TfiClose } from "react-icons/tfi";
 import { TfiShoppingCart } from "react-icons/tfi";
 
+import { useSession } from 'next-auth/react';
+import SignOutBtn from '../module/signOutBtn';
+import { useRouter } from 'next/router';
+
 export default function Layout({component}){
+    let router = useRouter()
     let [menuStatus , setMenuStatus] = useState()
+    let session = useSession()
+
     return(
-        <div className={style.respons}>
+    <div className={style.respons}>
         <header className={style.header}>
             <div className={style.left}>
                 <Link href={'/'}>
@@ -23,16 +30,32 @@ export default function Layout({component}){
             <div className={style.menu_list} style={menuStatus ? {display : 'flex'} : {display : 'none'}}>
                 <div className={style.close} onClick={() => setMenuStatus(false)} ><TfiClose /></div>
                 <Link href={'/menu'}>
-                     menu 
+                    menu 
                 </Link>
                 <Link href={'/categories'}>
                     categories
                 </Link>
+                {
+                    session.status == 'authenticated' 
+                    ? <img src='/images/shopping-cart.png' style={{marginBottom: '20px'}} className={style.basket} onClick={() => router.push('/cart')}/>
+                    : null
+                }
                 <div className={style.cart}> <TfiShoppingCart /></div>
-                <div onClick={() => router.push('/register')} style={{marginTop: '25px'}}><SignBtn /></div>
+                 
+                {
+                    session.status != 'authenticated' 
+                    ? <div onClick={() => router.push('/register')} style={{marginTop: '25px'}}> <SignBtn /> </div>
+                    : <SignOutBtn />
+                }
+                
                 
             </div>
-            <div className={style.right}>
+            <div style={session.status == 'authenticated' ? {width : '350px'} : null} className={style.right}>
+                {
+                    session.status == 'authenticated' 
+                    ? <img src='/images/shopping-cart.png' className={style.basket} onClick={() => router.push('/cart')}/>
+                    : null
+                }
                 <div>
                     <Link href={'/menu'}>
                     menu
@@ -41,7 +64,11 @@ export default function Layout({component}){
                     categories
                     </Link>
                 </div>
-                <SignBtn />
+                {
+                    session.status != 'authenticated' 
+                    ? <SignBtn /> 
+                    : <SignOutBtn />
+                }
             </div>
         </header>
 
@@ -50,6 +77,6 @@ export default function Layout({component}){
         <div className={style.footer}>
             AmirMohammad Moslemi &copy;
         </div>
-        </div>
+    </div>
     )                                                   
 }

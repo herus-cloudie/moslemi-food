@@ -1,7 +1,7 @@
 .button {
-    --primary-color: #53c60b;
+    --primary-color: #818181;
     --secondary-color: #fff;
-    --hover-color: #111;
+    --hover-color: red;
     --arrow-width: 10px;
     --arrow-stroke: 2px;
     box-sizing: border-box;

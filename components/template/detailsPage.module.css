@@ -120,16 +120,15 @@
   background-color: #bcff93;
 }
 
-.container button {
-  width: 100%;
+.container .button_loader {
+  width: 50%;
   border: none;
-  background-color: #41d148;
+  background-color: #969696;
   color: white;
-  padding: 15px;
+  padding: 11px;
   font-size: 1.3rem;
   border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 100px;
 }
 
 @media (max-width: 900px) {
@@ -153,3 +152,152 @@
     margin-bottom: 20px;
   }
 }
+.loader{
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+}
+
+.button_green {
+  margin: auto;
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.6em 2em;
+  border: #53c60b solid 0.15em;
+  border-radius: 0.25em;
+  color: black;
+  font-size: 1.5em;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
+  width: 300px;
+}
+
+.button_green p {
+  z-index: 1;
+  margin: auto;
+}
+
+.button_green:hover {
+  color: rgb(255, 255, 255);
+}
+
+.button_green:active {
+  border-color: #53c60b;
+}
+
+.button_green::after, .button_green::before {
+  content: "";
+  position: absolute;
+  width: 13em;
+  aspect-ratio: 1;
+  background: #15ff00;
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.button_green::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.button_green::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.button_green:hover:before {
+  transform: translateX(-1em);
+}
+
+.button_green:hover:after {
+  transform: translateX(1em);
+}
+
+.button_green:active:before,
+.button_green:active:after {
+  background: #53c60b;
+}
+.button_container{
+  justify-content: center;
+  display: flex;
+}
+
+
+
+.button_red {
+  margin: auto;
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.6em 2em;
+  border: #c60b0b solid 0.15em;
+  border-radius: 0.25em;
+  color: black;
+  font-size: 1.5em;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
+  width: 300px;
+}
+
+.button_red p {
+  z-index: 1;
+  margin: auto;
+}
+
+.button_red:hover {
+  color: rgb(255, 255, 255);
+}
+
+.button_red:active {
+  border-color: #c60b0b;
+}
+
+.button_red::after, .button_red::before {
+  content: "";
+  position: absolute;
+  width: 13em;
+  aspect-ratio: 1;
+  background: #ff0000;
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.button_red::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.button_red::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.button_red:hover:before {
+  transform: translateX(-1em);
+}
+
+.button_red:hover:after {
+  transform: translateX(1em);
+}
+
+.button_red:active:before,
+.button_red:active:after {
+  background: #f60a0a;
+}
+.button_container{
+  justify-content: center;
+  display: flex;
+  margin-bottom: 100px;
+}
+

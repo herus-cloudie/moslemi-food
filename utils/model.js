@@ -1,5 +1,4 @@
-const { Schema, model, models } = require("mongoose");
-
+import { Schema , model , models  } from "mongoose";
 
 let FoodUserSchema = new Schema({
     Email : {
@@ -13,6 +12,10 @@ let FoodUserSchema = new Schema({
     SecondPassword : {
         type : String
     },
+    Cart : {
+        type : [Object],
+        default : []
+    }
 })
 
 let FoodUser = models.FoodUser || model('FoodUser' , FoodUserSchema)

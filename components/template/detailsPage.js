@@ -1,9 +1,45 @@
 import styles from "./detailsPage.module.css";
 import Location from "../icons/Location";
 import Dollar from "../icons/Dollar";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import Loader from "../module/loader";
+import { useRouter } from "next/router";
 
 function DetailsPage(data) {
   const {id , name , price , discount , introduction , details , ingredients , recipe} = data;
+  let [existing , setExisting] = useState(false)
+  let [loading , setLoading] = useState(false)
+  let session = useSession();
+  let router = useRouter()
+
+  function changeExitingState(Data){
+    if(Data.data.find(item => item.id == id)) setExisting(true)
+    else setExisting(false)
+  }
+  
+  useEffect(() => {
+    async function checkExiting(){
+      let progress = await fetch('/api/addItem')
+      let Data = await progress.json()
+     
+      changeExitingState(Data)
+    }
+    checkExiting()
+  } , [])
+  
+  const addToCartHandler = async () => {
+    setLoading(true)
+    let progress = await fetch('/api/addItem' , {
+      method : 'PATCH',
+      body : JSON.stringify(data),
+      headers : {"Content-Type": "application/json"}
+    })
+    setLoading(false)
+    let Data = await progress.json()
+
+    changeExitingState(Data)
+  }
 
   return (
     <div className={styles.container}>
@@ -58,7 +94,26 @@ function DetailsPage(data) {
             </div>
           ))}
         </div>
-        <button>Add to Cart</button>
+        {
+          session.status == 'authenticated' 
+
+              ? loading 
+
+                ? <div className={styles.button_container}><button className={styles.button_loader}><div className={styles.loader}><Loader /></div></button></div>  
+                : <div className={styles.button_container}>
+                    <button onClick={addToCartHandler} className={existing ? styles.button_red : styles.button_green}>
+                    {
+                      existing ? <p>Remove from Cart </p> : <p>Add to Cart</p>
+                    }
+                    </button>
+                  </div>
+                
+              : <div className={styles.button_container}>
+                  <button onClick={() => router.push('/register')} className={styles.button_green}>
+                    <p>Sign up to order</p>
+                  </button>
+                </div>
+          }
      </div>
   );
 }

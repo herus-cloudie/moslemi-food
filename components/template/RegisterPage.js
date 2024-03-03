@@ -1,19 +1,22 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
-import style from './RegisterPage.module.css'
 import Loader from '../module/loader'
 
+import style from './RegisterPage.module.css'
 
-export default function RegisterPage(){
+export default function RegisterPage(){    
+    
+    let router = useRouter()
     let [loading , setLoading] = useState()
+
     let [state , setState] = useState({
         Email : '',
         Password : '',
         SecondPassword : '',
         Err : ''
     })
-    let router = useRouter()
+
     const changeHandler = (event) => {
         let {value , name} = event.target;
         setState({...state , [name] : value})
@@ -29,16 +32,19 @@ export default function RegisterPage(){
             let progress = await fetch('/api/auth/register' , {
                 method : 'POST',
                 body : JSON.stringify(state),
-                headers: {"Content-Type": "application/json",},
+                headers: {"Content-Type": "application/json"}
             })
             setLoading(false)
             let Data = await progress.json();
             if(Data.status == 'success'){
                 router.push('/signin')
+            }else if(Data.status == 'faild'){
+                setState({...state , Err : Data.message})
             }
            
         }
     }
+
     return(
         <>
         <div className={style.form_main}>

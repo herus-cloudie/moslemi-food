@@ -4,13 +4,11 @@ import style from "./signBtn.module.css";
 export default function SignBtn(){
     let router = useRouter()
     return(
-        <button onClick={() => router.pathname == '/' ?  router.push('/register')
-        : router.pathname == '/register' ?  router.push('/signin')
-        : router.pathname == '/signin' ?  router.push('/register') : null} className={style.button}>
+        <button onClick={() => router.pathname == '/register' ?  router.push('/signin') : router.push('/register') } className={style.button}>
             {
-                router.pathname == '/' ||  router.pathname == '/signin'
-                ? 'Register' 
-                : 'Sign In'
+                router.pathname == '/register'
+                ? 'Sign In'
+                : 'Register' 
             }
             <div className={style.arrow_wrapper}>
                 <div className={style.arrow}></div>

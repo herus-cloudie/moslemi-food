@@ -1,0 +1,132 @@
+.container{
+    max-width: 900px;
+    margin: 100px auto;
+}
+.input_group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart_group{
+    padding: 10px 0;
+    border: 2px solid black;
+    box-shadow: 4px 4px black;
+    border-radius: 5px;
+}
+.Cart{
+    display: flex;
+    justify-content: space-between;
+}
+.h2 {
+    border-bottom: 5px solid #53c60b;
+    width: fit-content;
+    margin-bottom: 50px;
+    font-size: 1.9rem;
+  }
+  .button_green {
+    margin: auto;
+    all: unset;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.6em 2em;
+    border: blue solid 0.15em;
+    border-radius: 0.25em;
+    color: black;
+    font-size: 1.5em;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border 300ms, color 300ms;
+    user-select: none;
+    width: 300px;
+  }
+  
+  .button_green p {
+    z-index: 1;
+    margin: auto;
+  }
+  
+  .button_green:hover {
+    color: rgb(255, 255, 255);
+  }
+  
+  .button_green:active {
+    border-color: blue;
+  }
+  
+  .button_green::after, .button_green::before {
+    content: "";
+    position: absolute;
+    width: 13em;
+    aspect-ratio: 1;
+    background: blue;
+    opacity: 50%;
+    border-radius: 50%;
+    transition: transform 500ms, background 300ms;
+  }
+  
+  .button_green::before {
+    left: 0;
+    transform: translateX(-8em);
+  }
+  
+  .button_green::after {
+    right: 0;
+    transform: translateX(8em);
+  }
+  
+  .button_green:hover:before {
+    transform: translateX(-1em);
+  }
+  
+  .button_green:hover:after {
+    transform: translateX(1em);
+  }
+  
+  .button_green:active:before,
+  .button_green:active:after {
+    background: blue;
+  }
+  .button_container{
+    justify-content: center;
+    display: flex;
+  }
+  
+  @media (max-width : 750px) {
+    .Cart{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input_group{
+        margin-top: 50px;
+        height: 450px;
+    }
+    .h2 {
+        margin-left: 20px;
+    }
+    .button_green p {
+    font-size: 20px;
+    }
+    .button_green{
+        width: 235px;
+    }
+}
+@media (max-width : 400px) {
+    .button_green p {
+        font-size: 17px;
+    }
+    .button_green{
+        width: 200px;
+    }
+
+}
+.final_price{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: monospace;
+    margin: 20px 0 20px 25px;
+}

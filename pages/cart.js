@@ -1,16 +1,16 @@
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]";
 
-import SigninPage from "@/components/template/SigninPage";
+import CartPage from "@/components/template/cartPage";
 
-export default function Signin(){
-    return <SigninPage />
+export default function Home() { 
+  return <CartPage/>
 }
-
 
 export async function getServerSideProps({req , res}) {
     let session = await getServerSession(req , res , authOptions)
-    if (session) {
+    if (!session) {
         return {
           redirect: {
             destination: '/',
@@ -22,4 +22,4 @@ export async function getServerSideProps({req , res}) {
       return {
         props: {},
       }
-  }
+}
