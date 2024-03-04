@@ -29,18 +29,18 @@ export default function Layout({component}){
             <div onClick={() => setMenuStatus(true)} className={style.menu}><TfiMenu /></div>
             <div className={style.menu_list} style={menuStatus ? {display : 'flex'} : {display : 'none'}}>
                 <div className={style.close} onClick={() => setMenuStatus(false)} ><TfiClose /></div>
-                <Link href={'/menu'}>
+                <Link  onClick={() => setMenuStatus(false)} href={'/menu'}>
                     menu 
                 </Link>
-                <Link href={'/categories'}>
+                <Link  onClick={() => setMenuStatus(false)} href={'/categories'}>
                     categories
                 </Link>
                 {
                     session.status == 'authenticated' 
-                    ? <img src='/images/shopping-cart.png' style={{marginBottom: '20px'}} className={style.basket} onClick={() => router.push('/cart')}/>
+                    ?<div onClick={() => setMenuStatus(false)}>  <img src='/images/shopping-cart.png' style={{marginBottom: '20px'}} className={style.basket} onClick={() => router.push('/cart')}/></div> 
                     : null
                 }
-                <div className={style.cart}> <TfiShoppingCart /></div>
+                <div  onClick={() => setMenuStatus(false)} className={style.cart}> <TfiShoppingCart /></div>
                  
                 {
                     session.status != 'authenticated' 
